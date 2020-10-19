@@ -1,6 +1,4 @@
-import React, { useReducer } from "react";
-
-const CookBookContext = React.createContext();
+import createDataContext from "./createDataContext";
 
 const recipesReducer = (state, action) => {
   switch (action.type) {
@@ -11,18 +9,14 @@ const recipesReducer = (state, action) => {
   }
 };
 
-export const CookBookProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(recipesReducer, []);
-
-  const addRecipe = () => {
+const addRecipe = (dispatch) => {
+  return () => {
     dispatch({ type: "ADD_RECIPE" });
   };
-
-  return (
-    <CookBookContext.Provider value={{ data: state, addRecipe }}>
-      {children}
-    </CookBookContext.Provider>
-  );
 };
 
-export default CookBookContext;
+export const { Context, Provider } = createDataContext(
+  recipesReducer,
+  { addRecipe },
+  []
+);
