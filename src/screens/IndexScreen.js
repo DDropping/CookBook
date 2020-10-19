@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Button } from "react-native";
-import { Context } from "../context/CookBookContext";
+import { Context } from "../context/MyRecipesContext";
 
 const IndexScreen = () => {
   const { state, addRecipe } = useContext(Context);

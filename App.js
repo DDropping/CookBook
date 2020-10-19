@@ -3,7 +3,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 import IndexScreen from "./src/screens/IndexScreen";
-import { Provider } from "./src/context/CookBookContext";
+import { Provider } from "./src/context/MyRecipesContext";
 
 const navigator = createStackNavigator(
   {
