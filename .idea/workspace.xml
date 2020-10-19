@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0e5d22ff-9512-44ee-8904-f4e9b0e64808" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/IndexScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/IndexScreen.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1j7HVskB5YRoPc2bAu2Yc5YemAy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e5d22ff-9512-44ee-8904-f4e9b0e64808" name="Default Changelist" comment="" />
+      <created>1603148236748</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603148236748</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1741" y="306" width="1200" height="800" key="AVDManager" timestamp="1603148785340">
+      <screen x="-2560" y="8" width="2560" height="1400" />
+    </state>
+    <state x="-1741" y="306" width="1200" height="800" key="AVDManager/0.0.2560.1400/-2560.8.2560.1400@-2560.8.2560.1400" timestamp="1603148785340" />
+    <state x="-1478" y="425" width="672" height="678" key="search.everywhere.popup" timestamp="1603148341965">
+      <screen x="-2560" y="8" width="2560" height="1400" />
+    </state>
+    <state x="-1478" y="425" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-2560.8.2560.1400@-2560.8.2560.1400" timestamp="1603148341965" />
+  </component>
+</project>
