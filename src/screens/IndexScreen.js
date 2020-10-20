@@ -21,7 +21,9 @@ const IndexScreen = ({ navigation }) => {
         keyExtractor={(recipe) => recipe.title}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate("Recipe")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Recipe", { id: item.id })}
+            >
               <Text>{item.title}</Text>
             </TouchableOpacity>
           );

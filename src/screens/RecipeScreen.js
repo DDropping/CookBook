@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, Stylesheet } from "react-native";
+import { Context } from "../context/MyRecipesContext";
 
-const RecipeScreen = () => {
+const RecipeScreen = ({ navigation }) => {
+  const { state } = useContext(Context);
+  const recipe = state.find(
+    (recipe) => recipe.id === navigation.getParam("id")
+  );
+
   return (
     <View>
-      <Text>Recipe Screen</Text>
+      <Text>{recipe.title}</Text>
     </View>
   );
 };
