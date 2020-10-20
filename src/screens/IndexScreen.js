@@ -37,7 +37,10 @@ const IndexScreen = ({ navigation }) => {
 IndexScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <TouchableOpacity onPress={() => navigation.navigate("CreateRecipe")}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("CreateRecipe")}
+        style={{ marginRight: 10 }}
+      >
         <Feather name="plus" size={30} />
       </TouchableOpacity>
     ),

@@ -6,12 +6,14 @@ import { Provider } from "./src/context/MyRecipesContext";
 import IndexScreen from "./src/screens/IndexScreen";
 import RecipeScreen from "./src/screens/RecipeScreen";
 import CreateRecipeScreen from "./src/screens/CreateRecipeScreen";
+import EditRecipeScreen from "./src/screens/EditRecipeScreen";
 
 const navigator = createStackNavigator(
   {
     Index: IndexScreen,
     Recipe: RecipeScreen,
     CreateRecipe: CreateRecipeScreen,
+    EditRecipe: EditRecipeScreen,
   },
   {
     initialRouteName: "Index",
