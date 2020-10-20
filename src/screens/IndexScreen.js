@@ -7,30 +7,41 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
+import { Feather } from "@expo/vector-icons";
+
 import { Context } from "../context/MyRecipesContext";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addRecipe } = useContext(Context);
+  const { state } = useContext(Context);
 
   return (
     <View>
       <Text>My CookBook</Text>
-      <Button title="Add New Recipe" onPress={addRecipe} />
       <FlatList
         data={state}
-        keyExtractor={(recipe) => recipe.title}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
               onPress={() => navigation.navigate("Recipe", { id: item.id })}
             >
-              <Text>{item.title}</Text>
+              <Text>{item.name}</Text>
             </TouchableOpacity>
           );
         }}
       />
     </View>
   );
+};
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate("CreateRecipe")}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({});

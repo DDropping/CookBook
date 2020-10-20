@@ -7,7 +7,7 @@ const recipesReducer = (state, action) => {
         ...state,
         {
           id: Math.floor(Math.random() * 99999999),
-          title: `Recipe ${state.length + 1}`,
+          ...action.payload,
         },
       ];
     case "DELETE_RECIPE":
@@ -18,8 +18,9 @@ const recipesReducer = (state, action) => {
 };
 
 const addRecipe = (dispatch) => {
-  return () => {
-    dispatch({ type: "ADD_RECIPE" });
+  return (recipe, callback) => {
+    dispatch({ type: "ADD_RECIPE", payload: recipe });
+    callback();
   };
 };
 
