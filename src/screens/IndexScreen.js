@@ -1,8 +1,15 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet, FlatList, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { Context } from "../context/MyRecipesContext";
 
-const IndexScreen = () => {
+const IndexScreen = ({ navigation }) => {
   const { state, addRecipe } = useContext(Context);
 
   return (
@@ -13,7 +20,11 @@ const IndexScreen = () => {
         data={state}
         keyExtractor={(recipe) => recipe.title}
         renderItem={({ item }) => {
-          return <Text>{item.title}</Text>;
+          return (
+            <TouchableOpacity onPress={() => navigation.navigate("Recipe")}>
+              <Text>{item.title}</Text>
+            </TouchableOpacity>
+          );
         }}
       />
     </View>
