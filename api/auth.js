@@ -16,7 +16,7 @@ router.post("/signup", async (req, res) => {
     await user.save();
     res.send("post request to signup");
   } catch (err) {
-    res.send("Could Not Register User");
+    res.status(422).send("Could Not Register User");
     console.log(err.message);
   }
 });
