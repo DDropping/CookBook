@@ -1,7 +1,8 @@
+require("./models/User");
 const express = require("express");
 const connectDB = require("./config/DB");
 const cors = require("cors");
-//const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -9,8 +10,9 @@ const app = express();
 connectDB();
 
 //init middleware
-// parse body
-app.use(express.json({ extended: true })); //app.use(bodyParser.json({ type: '*/*' }));
+//app.use(express.json({ extended: true }));
+app.use(bodyParser.json());
+
 // cross origin resource sharing
 app.use(
   cors({
@@ -21,7 +23,7 @@ app.use(
 app.get("/", (req, res) => res.send("API running"));
 
 //define routes
-// app.use("/api/accounts", require("./routes/api/accounts"));
+app.use("/api/auth", require("./api/auth"));
 
 //Server setup
 const PORT = process.env.PORT || 5000;
