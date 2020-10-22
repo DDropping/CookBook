@@ -20,7 +20,7 @@ router.post("/create", authUserJwt, async (req, res) => {
     sourceUrl,
     dietLabels,
     healthLabels,
-    ingrediants,
+    ingredients,
     directions,
     calories,
   } = req.body;
@@ -36,7 +36,7 @@ router.post("/create", authUserJwt, async (req, res) => {
   if (sourceUrl) recipeFields.sourceUrl = sourceUrl;
   if (dietLabels) recipeFields.dietLabels = dietLabels;
   if (healthLabels) recipeFields.healthLabels = healthLabels;
-  if (ingrediants) recipeFields.ingrediants = ingrediants;
+  if (ingredients) recipeFields.ingredients = ingredients;
   if (directions) recipeFields.directions = directions;
   if (calories) recipeFields.calories = calories;
 

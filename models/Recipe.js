@@ -7,7 +7,7 @@ const recipeSchema = new mongoose.Schema({
   sourceUrl: { type: String },
   dietLabels: [{ type: String }],
   healthLabels: [{ type: String }],
-  ingrediants: [{ type: String }],
+  ingredients: [{ type: String }],
   directions: [{ type: String }],
   calories: { type: String },
 });
