@@ -11,14 +11,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  myRecipes: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Recipe",
-  },
-  savedRecipes: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Recipe",
-  },
+  myRecipes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recipe",
+    },
+  ],
+  savedRecipes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recipe",
+    },
+  ],
 });
 
 //encrypt user password

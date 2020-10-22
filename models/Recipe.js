@@ -7,9 +7,9 @@ const recipeSchema = new mongoose.Schema({
   sourceUrl: { type: String },
   dietLabels: [{ type: String }],
   healthLabels: [{ type: String }],
-  incredients: [{ type: String }],
+  ingrediants: [{ type: String }],
   directions: [{ type: String }],
-  calories: { types: String },
+  calories: { type: String },
 });
 
 mongoose.model("Recipe", recipeSchema);
