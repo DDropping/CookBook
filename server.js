@@ -1,4 +1,5 @@
 require("./models/User");
+require("./models/Recipe");
 const express = require("express");
 const connectDB = require("./config/DB");
 const cors = require("cors");
@@ -24,6 +25,7 @@ app.get("/", (req, res) => res.send("API running"));
 
 //define routes
 app.use("/api/auth", require("./api/auth"));
+app.use("/api/recipes", require("./api/recipes"));
 
 //Server setup
 const PORT = process.env.PORT || 5000;
