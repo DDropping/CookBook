@@ -9,7 +9,6 @@ const router = express.Router();
 // @desc    Register new user account
 // @access  Public
 router.post("/signup", async (req, res) => {
-  console.log("inside");
   try {
     const { email, password } = req.body;
 
