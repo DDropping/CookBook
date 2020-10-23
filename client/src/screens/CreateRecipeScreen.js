@@ -1,19 +1,29 @@
 import React, { useState, useContext } from "react";
-import { View, Text, TextInput, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Button,
+  FlatList,
+} from "react-native";
 import { Context } from "../context/MyRecipesContext";
+
+import IngredientItem from "../components/createRecipe/IngredientItem";
 
 const CreateRecipeScreen = ({ navigation }) => {
   const { state, addRecipe } = useContext(Context);
   const [recipe, setRecipe] = useState({
-    name: "food",
-    ingredients: [],
+    label: "food",
+    ingredients: [{ id: 123123123, ingredient: "foooood" }],
     directions: "cook it",
   });
-  const [name, setName] = useState("");
+  const [label, setLabel] = useState("");
   const [ingredient, setIngredient] = useState("");
   const [directions, setDirections] = useState("");
 
   const addIngredient = (newIngredient) => {
+    console.log("adding ingredient");
     setRecipe({
       ...recipe,
       ingredients: [
@@ -26,12 +36,14 @@ const CreateRecipeScreen = ({ navigation }) => {
   const removeIngredient = (id) => {
     setRecipe({
       ...recipe,
-      ingredients: ingredients.filter((ingredient) => ingredient.id !== id),
+      ingredients: recipe.ingredients.filter(
+        (ingredient) => ingredient.id !== id
+      ),
     });
   };
 
-  const addName = () => {
-    setRecipe({ ...recipe, name: name });
+  const addLabel = () => {
+    setRecipe({ ...recipe, label: label });
   };
 
   const addDirections = () => {
@@ -40,18 +52,39 @@ const CreateRecipeScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Text style={styles.title}>Name: </Text>
+      <Text style={styles.title}>Label: </Text>
       <TextInput
         style={styles.inputBox}
-        value={name}
-        onChangeText={(text) => setName(text)}
+        value={label}
+        onChangeText={(text) => setLabel(text)}
       />
+
       <Text style={styles.title}>Ingredients: </Text>
-      <TextInput
-        style={styles.inputBox}
-        value={ingredient}
-        onChangeText={(text) => setIngredient(text)}
+      <View style={styles.ingredientContainer}>
+        <TextInput
+          style={styles.ingredientsInputBox}
+          value={ingredient}
+          onChangeText={(text) => setIngredient(text)}
+        />
+        <Button title="Add" onPress={() => addIngredient(ingredient)} />
+      </View>
+      <FlatList
+        data={recipe.ingredients}
+        keyExtractor={(item) => item.id.toString()}
+        extraData={recipe.ingredients}
+        renderItem={({ item }) => {
+          {
+            console.log("item: ", item);
+          }
+          return (
+            <IngredientItem
+              ingredient={item.ingredient}
+              removeIngredient={() => removeIngredient(item.id)}
+            />
+          );
+        }}
       />
+
       <Text style={styles.title}>Directions: </Text>
       <TextInput
         style={styles.inputBox}
@@ -82,6 +115,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     fontSize: 20,
     marginBottom: 20,
+  },
+  ingredientsInputBox: {
+    borderColor: "black",
+    borderRadius: 2,
+    borderWidth: 1,
+    marginHorizontal: 10,
+    fontSize: 20,
+    marginBottom: 20,
+    flex: 1,
+  },
+  ingredientContainer: {
+    display: "flex",
+    flexDirection: "row",
   },
 });
 
