@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { View, Text, Stylesheet, TouchableOpacity } from "react-native";
 import { Context } from "../context/MyRecipesContext";
-import { FontAwesome } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
-const RecipeScreen = ({ navigation }) => {
+const MyRecipeScreen = ({ navigation }) => {
   const { state } = useContext(Context);
 
   return (
@@ -13,13 +13,16 @@ const RecipeScreen = ({ navigation }) => {
   );
 };
 
-RecipeScreen.navigationOptions = ({ navigation }) => {
+MyRecipeScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <TouchableOpacity>
-        <FontAwesome
-          name="bookmark-o"
-          size={24}
+      <TouchableOpacity
+        onPress={() => navigation.navigate("EditRecipe")}
+        style={{ marginRight: 10 }}
+      >
+        <Feather
+          name="edit"
+          size={25}
           color="black"
           style={{ marginRight: 10 }}
         />
@@ -28,4 +31,4 @@ RecipeScreen.navigationOptions = ({ navigation }) => {
   };
 };
 
-export default RecipeScreen;
+export default MyRecipeScreen;

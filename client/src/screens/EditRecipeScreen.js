@@ -4,14 +4,10 @@ import { Context } from "../context/MyRecipesContext";
 
 const EditRecipeScreen = ({ navigation }) => {
   const { state } = useContext(Context);
-  const recipeData = state.find(
-    (recipe) => recipe.id === navigation.getParam("id")
-  );
-  const [recipe, setRecipe] = useState(recipeData);
 
   return (
     <View>
-      <Text>{recipe.title}</Text>
+      <Text>Edit recipe screen</Text>
     </View>
   );
 };
