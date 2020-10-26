@@ -3,7 +3,8 @@ import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
-import { Provider } from "./src/context/MyRecipesContext";
+import { Provider as RecipeProvider } from "./src/context/MyRecipesContext";
+import { Provider as AuthProvider } from "./src/context/AuthContext";
 import IndexScreen from "./src/screens/IndexScreen";
 import RecipeScreen from "./src/screens/RecipeScreen";
 import CreateRecipeScreen from "./src/screens/CreateRecipeScreen";
@@ -38,33 +39,15 @@ const switchNavigator = createSwitchNavigator({
   }),
 });
 
-// const navigator = createStackNavigator(
-//   {
-//     Index: IndexScreen,
-//     Recipe: RecipeScreen,
-//     CreateRecipe: CreateRecipeScreen,
-//     EditRecipe: EditRecipeScreen,
-//     BrowseRecipes: BrowseRecipesScreen,
-//     MyRecipes: MyRecipeListScreen,
-//     SavedRecipes: SavedRecipesScreen,
-//     Signin: SigninScreen,
-//     Signup: SignupScreen,
-//   },
-//   {
-//     initialRouteName: "Index",
-//     defaultNavigationOptions: {
-//       title: "CookBook",
-//     },
-//   }
-// );
-
 const App = createAppContainer(switchNavigator);
 
 export default () => {
   return (
-    <Provider>
-      <App />
-    </Provider>
+    <AuthProvider>
+      <RecipeProvider>
+        <App />
+      </RecipeProvider>
+    </AuthProvider>
   );
 };
 
