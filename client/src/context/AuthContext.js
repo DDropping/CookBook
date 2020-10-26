@@ -11,7 +11,7 @@ const authReducer = (state, action) => {
         ...state,
         errorMessage: action.payload,
       };
-    case "signup":
+    case "signin":
       return {
         ...state,
         token: action.payload,
@@ -32,7 +32,7 @@ const signup = (dispatch) => async ({ email, password }) => {
     //store token in async storage
     await AsyncStorage.setItem("token", response.data.token);
     //store token in context
-    dispatch({ type: "signup", payload: response.data.token });
+    dispatch({ type: "signin", payload: response.data.token });
     //navigate to main flow
     navigate("mainFlow");
   } catch (err) {
@@ -43,8 +43,19 @@ const signup = (dispatch) => async ({ email, password }) => {
 
 const signin = (dispatch) => async ({ email, password }) => {
   try {
-    console.log(email);
+    //create new user and return token
+    const response = await cookbookApi.post("/api/auth/signin", {
+      email,
+      password,
+    });
+    //store token in async storage
+    await AsyncStorage.setItem("token", response.data.token);
+    //store token in context
+    dispatch({ type: "signin", payload: response.data.token });
+    //navigate to main flow
+    navigate("mainFlow");
   } catch (err) {
+    dispatch({ type: "add_error", payload: "Something went wrong" });
     console.log(err.message);
   }
 };
