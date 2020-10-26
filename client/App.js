@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import { Provider as RecipeProvider } from "./src/context/MyRecipesContext";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
+import { setNavigator } from "./src/navigationRef";
 import IndexScreen from "./src/screens/IndexScreen";
 import RecipeScreen from "./src/screens/RecipeScreen";
 import CreateRecipeScreen from "./src/screens/CreateRecipeScreen";
@@ -45,10 +46,12 @@ export default () => {
   return (
     <AuthProvider>
       <RecipeProvider>
-        <App />
+        <App
+          ref={(navigator) => {
+            setNavigator(navigator);
+          }}
+        />
       </RecipeProvider>
     </AuthProvider>
   );
 };
-
-//export default createAppContainer(switchNavigator);
