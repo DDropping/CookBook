@@ -27,6 +27,16 @@ const authReducer = (state, action) => {
   }
 };
 
+const tryLocalSignin = (dispatch) => async () => {
+  const token = await AsyncStorage.getItem("token");
+  if (token) {
+    dispatch({ type: "signin", payload: token });
+    navigate("mainFlow");
+  } else {
+    navigate("Signin");
+  }
+};
+
 const signup = (dispatch) => async ({ email, password }) => {
   try {
     //create new user and return token
@@ -75,6 +85,7 @@ export const { Provider, Context } = createDataContext(
     signup,
     signin,
     clearErrorMessage,
+    tryLocalSignin,
   },
   {
     token: null,
