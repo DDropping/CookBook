@@ -24,6 +24,8 @@ $ cd client
 $ expo start
 ```
 
+- update ngrok forwarding url in `client/src/api/cookbookApi.js`
+
 ---
 
 ## Technologies
