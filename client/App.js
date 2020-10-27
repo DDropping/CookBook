@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Provider as RecipeProvider } from "./src/context/MyRecipesContext";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
+import SplashScreen from "./src/screens/SplashScreen";
 import IndexScreen from "./src/screens/IndexScreen";
 import RecipeScreen from "./src/screens/RecipeScreen";
 import CreateRecipeScreen from "./src/screens/CreateRecipeScreen";
@@ -18,6 +19,7 @@ import SigninScreen from "./src/screens/SigninScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 
 const switchNavigator = createSwitchNavigator({
+  splash: SplashScreen,
   loginFlow: createStackNavigator({
     Signin: SigninScreen,
     Signup: SignupScreen,

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { NavigationEvents } from "react-navigation";
 import { View, StyleSheet } from "react-native";
 import { Text, Input, Button } from "react-native-elements";
@@ -7,15 +7,9 @@ import { Context as AuthContext } from "../context/AuthContext";
 import Spacer from "../components/Spacer";
 
 const SigninScreen = ({ navigation }) => {
-  const { state, signin, clearErrorMessage, tryLocalSignin } = useContext(
-    AuthContext
-  );
+  const { state, signin, clearErrorMessage } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    tryLocalSignin();
-  }, []);
 
   return (
     <View style={styles.container}>
