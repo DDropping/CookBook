@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { NavigationEvents } from "react-navigation";
 import { View, StyleSheet } from "react-native";
 import { Text, Input, Button } from "react-native-elements";
 
@@ -6,12 +7,13 @@ import { Context as AuthContext } from "../context/AuthContext";
 import Spacer from "../components/Spacer";
 
 const SigninScreen = ({ navigation }) => {
-  const { state, signin } = useContext(AuthContext);
+  const { state, signin, clearErrorMessage } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <View style={styles.container}>
+      <NavigationEvents onWillBlur={clearErrorMessage} />
       <Text h3 style={{ textAlign: "center" }}>
         Sign In
       </Text>
