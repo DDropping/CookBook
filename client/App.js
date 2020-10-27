@@ -8,6 +8,7 @@ import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
 import SplashScreen from "./src/screens/SplashScreen";
 import IndexScreen from "./src/screens/IndexScreen";
+import AccountScreen from "./src/screens/AccountScreen";
 import RecipeScreen from "./src/screens/RecipeScreen";
 import CreateRecipeScreen from "./src/screens/CreateRecipeScreen";
 import EditRecipeScreen from "./src/screens/EditRecipeScreen";
@@ -28,16 +29,19 @@ const switchNavigator = createSwitchNavigator({
     BrowseRecipesFlow: createStackNavigator({
       BrowseRecipes: BrowseRecipesScreen,
       Recipe: RecipeScreen,
+      account: AccountScreen,
     }),
     MyRecipesFlow: createStackNavigator({
       MyRecipeList: MyRecipeListScreen,
       MyRecipe: MyRecipeScreen,
       CreateRecipe: CreateRecipeScreen,
       EditRecipe: EditRecipeScreen,
+      account: AccountScreen,
     }),
     SavedRecipesFlow: createStackNavigator({
       SavedRecipes: SavedRecipesScreen,
       Recipe: RecipeScreen,
+      account: AccountScreen,
     }),
   }),
 });

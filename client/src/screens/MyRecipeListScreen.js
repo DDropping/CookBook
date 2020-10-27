@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 const MyRecipeListScreen = ({ navigation }) => {
@@ -25,6 +18,14 @@ const MyRecipeListScreen = ({ navigation }) => {
 
 MyRecipeListScreen.navigationOptions = ({ navigation }) => {
   return {
+    headerLeft: () => (
+      <TouchableOpacity
+        onPress={() => navigation.navigate("account")}
+        style={{ marginLeft: 10 }}
+      >
+        <Feather name="user" size={24} color="black" />
+      </TouchableOpacity>
+    ),
     headerRight: () => (
       <TouchableOpacity
         onPress={() => navigation.navigate("CreateRecipe")}

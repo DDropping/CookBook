@@ -17,6 +17,12 @@ const authReducer = (state, action) => {
         token: action.payload,
         errorMessage: "",
       };
+    case "signout":
+      return {
+        ...state,
+        token: null,
+        user: null,
+      };
     case "clear_error_message":
       return {
         ...state,
@@ -73,6 +79,12 @@ const signin = (dispatch) => async ({ email, password }) => {
     dispatch({ type: "add_error", payload: "Something went wrong" });
     console.log(err.message);
   }
+};
+
+const signout = (dispatch) => async () => {
+  await AsyncStorage.removeItem("token");
+  dispatch({ type: "signout" });
+  navigate("loginFlow");
 };
 
 const clearErrorMessage = (dispatch) => () => {

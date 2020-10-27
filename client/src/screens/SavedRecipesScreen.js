@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Text, Button } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 const SavedRecipesScreen = ({ navigation }) => {
   return (
@@ -16,5 +17,18 @@ const SavedRecipesScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({});
+
+SavedRecipesScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerLeft: () => (
+      <TouchableOpacity
+        onPress={() => navigation.navigate("account")}
+        style={{ marginLeft: 10 }}
+      >
+        <Feather name="user" size={24} color="black" />
+      </TouchableOpacity>
+    ),
+  };
+};
 
 export default SavedRecipesScreen;
